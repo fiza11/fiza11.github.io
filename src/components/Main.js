@@ -51,6 +51,8 @@ class Main extends React.Component {
           </p>
           <p>
           <Link to="/week1">Week 1</Link>
+          <br></br>
+          <Link to="/week2">Week 2</Link>
           </p>
           {close}
         </article>
