@@ -30,7 +30,7 @@ class Main extends React.Component {
           <h2 className="major">About Me</h2>
           <p>Hi, I'm Fiza.</p>
           <p>
-            I'm a second year student studying Computer Science and Engineering at International Institute of Information Technology, Hyderabad.
+            I'm a third year student studying Computer Science and Engineering at International Institute of Information Technology, Hyderabad.
           </p>
             <p>Currently I'm working with the organisation <a href="https://github.com/codezonediitj">CodeZoned</a> to implement the code for AdaBoost multi-class classification algorithm. You can read about my work on my blog.
           </p>
