@@ -55,6 +55,8 @@ class Main extends React.Component {
           <Link to="/week2">Week 2</Link>
           <br></br>
           <Link to="/week3">Week 3</Link>
+          <br></br>
+          <Link to="/week4">Week 4</Link>
           </p>
           {close}
         </article>
@@ -83,8 +85,8 @@ class Main extends React.Component {
               </a>
             </li>
             <li>
-              <a href="https://www.instagram.com/fizahusainn/" className="icon fa-instagram">
-                <span className="label">Instagram</span>
+              <a href="mailto:fiza.husain@students.iiit.ac.in" className="icon fa-envelope">
+                <span className="label">Email</span>
               </a>
             </li>
             <li>
