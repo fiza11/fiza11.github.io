@@ -149,7 +149,7 @@ pagination:
       </p>
       <p class="post-tags">
         <a href="{{ year | prepend: '/blog/' | prepend: site.baseurl}}">
-          <i class="fa-solid fa-calendar fa-sm"></i> {{ year }} </a>
+          <!-- <i class="fa-solid fa-calendar fa-sm"></i> {{ year }} </a> -->
 
           {% if tags != "" %}
           &nbsp; &middot; &nbsp;
