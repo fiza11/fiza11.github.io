@@ -1,0 +1,553 @@
+/*******************************************************************************
+ * Custom overrides — "Engineer's Notebook" direction.
+ * Imported last in main.scss so these win the cascade.
+ ******************************************************************************/
+
+// ---------------------------------------------------------------- palette ---
+
+:root {
+  --fh-serif: "Newsreader", Georgia, "Times New Roman", serif;
+  --fh-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --fh-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --global-bg-color: #fbfaf8;
+  --global-text-color: #17191c;
+  --global-text-color-light: #6f7684;
+  --global-theme-color: #0f766e;
+  --global-hover-color: #0d9488;
+  --global-divider-color: #e7e3dd;
+  --global-card-bg-color: #ffffff;
+  --global-footer-bg-color: #17191c;
+  --global-footer-text-color: #a8adb6;
+  --global-footer-link-color: #ffffff;
+
+  --fh-body: #3f444c;
+  --fh-accent-soft: #e8f2f0;
+  --fh-warm: #c2410c;
+}
+
+html[data-theme="dark"] {
+  --global-bg-color: #12141a;
+  --global-text-color: #e8eaed;
+  --global-text-color-light: #8b93a1;
+  --global-theme-color: #5eead4;
+  --global-hover-color: #99f6e4;
+  --global-divider-color: #262b35;
+  --global-card-bg-color: #181c23;
+  --global-footer-bg-color: #0b0d10;
+
+  --fh-body: #b6bcc7;
+  --fh-accent-soft: #10302b;
+  --fh-warm: #fb923c;
+}
+
+// ---------------------------------------------------------- header space ---
+// The navbar is fixed, so the page title needs real breathing room beneath it
+// rather than butting up against the rule.
+
+.post-header,
+.header-bar {
+  padding-top: 2.6rem;
+  margin-bottom: 0.4rem;
+}
+
+.navbar {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+
+  > .container {
+    align-items: center;
+  }
+
+  // The icon cluster and the nav links must share one baseline. Both get zero
+  // vertical margin and a flat line-height so neither drifts off-centre.
+  // In the navbar the links are DIRECT children of .navbar-brand.social —
+  // there is no .contact-icons wrapper here, unlike the page-footer block.
+  .navbar-brand.social {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    font-size: 1.4rem;
+
+    > a {
+      display: inline-flex;
+      align-items: center;
+      margin: 0;
+      line-height: 1;
+    }
+  }
+
+  .navbar-nav {
+    align-items: center;
+  }
+}
+
+// al-folio reserves a fixed offset for the navbar; give it a little more.
+body.fixed-top-nav {
+  padding-top: 72px;
+}
+
+// ------------------------------------------------------------ typography ---
+
+body {
+  font-family: var(--fh-sans);
+  font-size: 1.02rem;
+  line-height: 1.72;
+  color: var(--fh-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+p {
+  margin-bottom: 1.05rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+.post-title,
+.card-title {
+  font-family: var(--fh-serif);
+  color: var(--global-text-color);
+  letter-spacing: -0.012em;
+}
+
+// One page-title treatment everywhere: the size and left alignment used on
+// /work/, in the accent colour the blog page was already using on its own.
+.post-header .post-title,
+.header-bar h1,
+h1 {
+  font-size: 2.55rem;
+  font-weight: 500;
+  line-height: 1.16;
+  color: var(--global-theme-color);
+  text-align: left;
+}
+
+.header-bar {
+  text-align: left;
+  padding-top: 2.6rem; // matches .post-header so titles sit at one height
+  padding-bottom: 1.5rem;
+
+  h2 {
+    font-family: var(--fh-sans);
+    font-size: 1.02rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--global-text-color-light);
+    margin-top: 0.45rem;
+    letter-spacing: 0;
+  }
+}
+
+.post-header .desc,
+.post-description {
+  font-family: var(--fh-sans);
+  font-size: 1.02rem;
+  color: var(--global-text-color-light);
+  font-style: normal;
+}
+
+// Section headings follow the same treatment as the Writing page title:
+// serif, accent-coloured, with a hairline rule for scanning.
+h2.fh-section,
+.publications h2.year,
+.projects h2.category {
+  font-family: var(--fh-serif);
+  font-size: 1.72rem;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: -0.015em;
+  color: var(--global-theme-color);
+  border-bottom: 1px solid var(--global-divider-color);
+  padding-bottom: 0.55rem;
+  margin: 3.3rem 0 1.6rem;
+
+  a {
+    color: inherit;
+
+    &:hover {
+      color: var(--global-hover-color);
+      text-decoration: none;
+    }
+  }
+}
+
+// One type scale for headings site-wide:
+//   page title   2.55rem serif, accent
+//   section      1.72rem serif  (accent when it labels a section)
+//   sub-heading  1.15rem sans, semibold
+article h2 {
+  font-size: 1.72rem;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  margin: 2.6rem 0 0.9rem;
+}
+
+article h3,
+article h4,
+article h5,
+article h6 {
+  font-family: var(--fh-sans);
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  margin: 1.9rem 0 0.55rem;
+}
+
+a {
+  color: var(--global-theme-color);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--global-hover-color);
+    text-decoration: underline;
+  }
+}
+
+// -------------------------------------------------------------- profile ---
+
+.profile {
+  .more-info {
+    font-family: var(--fh-sans);
+    font-size: 0.86rem;
+    color: var(--global-text-color-light);
+    text-align: left;
+    padding-top: 0.6rem;
+
+    p {
+      margin-bottom: 0.2rem;
+    }
+  }
+
+  img {
+    border-radius: 8px;
+  }
+}
+
+// Scoped to the contact block at the foot of the about page. Must NOT be a
+// bare `.social` rule — the navbar's icon cluster is `.navbar-brand.social`
+// and would inherit the margin, dropping the icons below the nav baseline.
+article > .social {
+  margin-top: 2.6rem;
+
+  .contact-note {
+    font-family: var(--fh-sans);
+    font-size: 0.86rem;
+    color: var(--global-text-color-light);
+    margin-top: 0.5rem;
+  }
+}
+
+// ----------------------------------------------------------------- cards ---
+
+.projects {
+  .row {
+    row-gap: 1.15rem;
+  }
+
+  .card {
+    height: 100%;
+    background-color: var(--global-card-bg-color);
+    border: 1px solid var(--global-divider-color);
+    border-radius: 10px;
+    box-shadow: none;
+    transition:
+      border-color 0.18s ease,
+      transform 0.18s ease;
+
+    &:hover {
+      border-color: var(--global-theme-color);
+      transform: translateY(-2px);
+    }
+  }
+
+  .card-body {
+    padding: 1.5rem 1.6rem;
+  }
+
+  // The main offender: card titles were inheriting page-heading size.
+  .card-title {
+    font-family: var(--fh-serif);
+    font-size: 1.3rem !important;
+    font-weight: 600;
+    line-height: 1.34;
+    margin-bottom: 0.6rem;
+    color: var(--global-text-color);
+  }
+
+  .card-text {
+    font-family: var(--fh-sans);
+    font-size: 0.93rem;
+    line-height: 1.62;
+    color: var(--fh-body);
+    margin-bottom: 0;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+}
+
+// ---------------------------------------------------------- publications ---
+
+.publications {
+  ol.bibliography {
+    li {
+      margin-bottom: 1.6rem;
+
+      .title {
+        font-family: var(--fh-serif);
+        font-size: 1.12rem;
+        font-weight: 600;
+        line-height: 1.4;
+        color: var(--global-text-color);
+      }
+
+      .author,
+      .periodical {
+        font-family: var(--fh-sans);
+        font-size: 0.9rem;
+        color: var(--fh-body);
+      }
+
+      .periodical {
+        color: var(--global-text-color-light);
+      }
+    }
+  }
+
+  .pub-title {
+    font-family: var(--fh-serif);
+    font-size: 1.12rem;
+    font-weight: 600;
+    color: var(--global-text-color);
+  }
+
+  abbr {
+    font-family: var(--fh-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+  }
+}
+
+// -------------------------------------------------------------------- cv ---
+// al-folio's time_table indents content by ml-md-4 on top of an already narrow
+// date column, which leaves a wide empty gutter and pushes everything right.
+
+.cv {
+  .card {
+    background-color: var(--global-card-bg-color);
+    border: 1px solid var(--global-divider-color);
+    border-radius: 10px;
+    box-shadow: none;
+    padding: 1.6rem 1.7rem !important;
+  }
+
+  // Section headings match every other section heading on the site.
+  .card-title {
+    font-family: var(--fh-serif);
+    font-size: 1.72rem;
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    color: var(--global-theme-color);
+    border-bottom: 1px solid var(--global-divider-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.15rem;
+  }
+
+  .list-group-item {
+    background-color: transparent;
+    border-color: var(--global-divider-color);
+    padding: 1.1rem 0;
+  }
+
+  .list-group-item:first-child {
+    padding-top: 0.2rem;
+  }
+
+  // Remove the double indent.
+  .ml-1,
+  .ml-md-4 {
+    margin-left: 0 !important;
+  }
+
+  // Entry head: role and organisation on one line at the same size, with the
+  // date pushed to the right edge instead of occupying a column of its own.
+  .cv-entry-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1.2rem;
+    margin-bottom: 0.45rem;
+  }
+
+  .cv-entry-heading {
+    font-family: var(--fh-sans);
+    font-size: 1.05rem;
+    line-height: 1.45;
+  }
+
+  .cv-role {
+    display: block;
+    font-weight: 600;
+    color: var(--global-text-color);
+  }
+
+  .cv-org,
+  .cv-dept {
+    display: block;
+    font-weight: 400;
+    color: var(--fh-body);
+  }
+
+  .cv-entry-year {
+    flex: 0 0 auto;
+    font-family: var(--fh-mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.04em;
+    color: var(--global-text-color-light);
+    white-space: nowrap;
+    padding-top: 0.12rem;
+  }
+
+  .cv-maindescription {
+    margin-bottom: 0.5rem;
+  }
+
+  // Skills sub-headings — the default was serif italic, which read as a pull
+  // quote rather than a label.
+  .cv-subhead {
+    font-family: var(--fh-sans);
+    font-size: 1.05rem;
+    font-weight: 600;
+    font-style: normal;
+    color: var(--global-text-color);
+    margin: 0 0 0.5rem;
+  }
+
+  .cv-venue {
+    font-family: var(--fh-mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.04em;
+    color: var(--global-text-color-light);
+    white-space: nowrap;
+  }
+
+  ul.items,
+  .list-group-item ul {
+    padding-left: 1.05rem;
+    margin-bottom: 0;
+
+    li {
+      font-size: 0.95rem;
+      line-height: 1.62;
+      margin-bottom: 0.35rem;
+    }
+  }
+
+  p.location {
+    font-size: 0.72rem;
+    color: var(--global-text-color-light);
+    margin: 0.4rem 0 0;
+  }
+
+  // The map layout (General Information) reads better as tight label/value rows.
+  table.table td {
+    padding: 0.32rem 0.9rem 0.32rem 0;
+    font-size: 0.97rem;
+    border: none;
+  }
+}
+
+// ---------------------------------------------------------------- tables ---
+
+article table {
+  font-family: var(--fh-sans);
+  font-size: 0.9rem;
+  width: 100%;
+  margin: 1.6rem 0;
+
+  th {
+    font-weight: 600;
+    color: var(--global-text-color);
+    border-bottom: 2px solid var(--global-divider-color);
+    padding: 0.5rem 0.7rem;
+    text-align: left;
+  }
+
+  td {
+    padding: 0.45rem 0.7rem;
+    border-bottom: 1px solid var(--global-divider-color);
+  }
+}
+
+// Wide tables must scroll inside their own container, never the page.
+article .table-wrap {
+  overflow-x: auto;
+}
+
+// ------------------------------------------------------------ post lists ---
+
+.post-list li {
+  .title {
+    font-family: var(--fh-serif);
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+
+  .post-meta,
+  .post-tags {
+    font-family: var(--fh-mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.05em;
+    color: var(--global-text-color-light);
+  }
+}
+
+// ------------------------------------------------------------ navigation ---
+
+.navbar {
+  font-family: var(--fh-sans);
+  background-color: var(--global-bg-color) !important;
+  border-bottom: 1px solid var(--global-divider-color);
+
+  .navbar-brand {
+    font-family: var(--fh-serif);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  .nav-link {
+    font-size: 0.95rem;
+  }
+}
+
+// ---------------------------------------------------------------- footer ---
+
+footer.fixed-bottom,
+footer.sticky-bottom {
+  font-family: var(--fh-sans);
+  font-size: 0.85rem;
+}
+
+// ---------------------------------------------------------------- mobile ---
+
+@media (max-width: 768px) {
+  .post-header .post-title,
+  h1 {
+    font-size: 1.95rem;
+  }
+
+  .projects .card-title {
+    font-size: 1.18rem !important;
+  }
+
+  .fh-pillars > .col {
+    padding-right: 0;
+  }
+}

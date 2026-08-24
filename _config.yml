@@ -7,9 +7,9 @@ first_name: Fiza
 middle_name: 
 last_name: Husain
 email: fizahusain1110@gmail.com
-description: 
-footer_text: 
-keywords: 
+description: Founding machine learning engineer working across multimodal models, applied ML, and evaluation — currently speech recognition and speech-to-speech in production, previously AIOps research at Microsoft and reinforcement learning at IIIT Hyderabad. First author at INTERSPEECH 2026 and FSE 2026.
+footer_text:
+keywords: machine learning engineer, multimodal models, speech AI, ASR, TTS, speech-to-speech, LLM fine-tuning, LoRA, DPO, model serving, evaluation, AIOps, reinforcement learning, applied ML, INTERSPEECH
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
 icon:  # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
 
@@ -104,7 +104,7 @@ youtube_id: # your youtube channel id (youtube.com/@<youtube_id>)
 zotero_username: # your zotero username
 
 contact_note: >
-  You can even add a little note about which of these is the best way to reach you.
+  Email is the surest way to reach me.
 
 # -----------------------------------------------------------------------------
 # Analytics and search engine verification
@@ -123,8 +123,8 @@ bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 # Blog
 # -----------------------------------------------------------------------------
 
-# blog_name: Fiza Husain # blog_name will be displayed in your blog page
-blog_description: 
+blog_name: writing
+blog_description: Notes on speech AI, evaluation, and building machine learning systems.
 permalink: /blog/:year/:title/
 
 # Pagination
@@ -173,10 +173,10 @@ collections:
     permalink: /news/:path/
   projects:
     output: true
-    permalink: /projects/:path/
+    permalink: /work/:path/
 
 announcements:
-  enabled: true
+  enabled: false
   scrollable: true # adds a vertical scroll bar if there are more than 3 news items
   limit: 5 # leave blank to include all the news in the `_news` folder
 
@@ -219,7 +219,7 @@ exclude:
   - lighthouse_results/
   - package.json
   - package-lock.json
-  - _pages/about_einstein.md
+  - docs/
   - purgecss.config.js
   - README.md
   - readme_preview/
@@ -366,7 +366,7 @@ external_links:
 # MAKE SURE imagemagick is installed and on your PATH before enabling imagemagick. In a terminal, run:
 #   convert -version
 imagemagick:
-  enabled: true # enables responsive images for your site (recommended, see https://github.com/alshedivat/al-folio/issues/537)
+  enabled: false # requires ImageMagick on PATH at build time; the deploy workflow does not install it, so enabling this emits <source> tags pointing at .webp variants that are never generated and 404
   widths:
     - 480
     - 800
@@ -580,19 +580,7 @@ third_party_libraries:
 # Get external JSON data
 # -----------------------------------------------------------------------------
 
+# The CV page is driven by _data/cv.yml. Do NOT define a `resume` data source
+# here: _layouts/cv.liquid prefers site.data.resume and silently ignores cv.yml
+# whenever it exists.
 jekyll_get_json:
-  - data: resume
-    json: assets/json/resume.json # it can also be an url
-jsonresume:
-  - basics
-  - work
-  - education
-  - publications
-  - projects
-  - volunteer
-  - awards
-  - certificates
-  - skills
-  - languages
-  - interests
-  - references

@@ -1,97 +1,92 @@
 - title: General Information
   type: map
   contents:
-    - name: Full Name
-      value: Albert Einstein
-    - name: Date of Birth
-      value: 14th March 1879
-    - name: Languages
-      value: English, German
-
-- title: Education
-  type: time_table
-  contents:
-    - title: PhD
-      institution: University of Zurich, Zurich, Switzerland
-      year: 1905
-      description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
-          contents:
-            - Sub-description 1.
-            - Sub-description 2.
-    - title: Federal teaching diploma
-      institution: Eidgenössische Technische Hochschule, Zurich, Switzerland
-      year: 1900
-      description:
-        - Description 1.
-        - Description 2.
+    - name: Name
+      value: Fiza Husain
+    - name: Location
+      value: Bangalore, India
+    - name: Focus
+      value: Speech AI, applied machine learning, model serving and evaluation
 
 - title: Experience
   type: time_table
   contents:
-    - title: Professor of Theoretical Physics
-      institution: Institute for Advanced Study, Princeton University
-      year: 1933 - 1955
+    - title: Founding Machine Learning Engineer
+      institution: Stimuler
+      year: 2025 — present
       description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
-          contents:
-            - Sub-description 1.
-            - Sub-description 2.
-    - title: Visiting Professor
-      institution: California Institute of Technology, Pasadena, California, US
-      year: 1933
+        - Own the production speech stack end to end — automatic speech recognition, text-to-speech, and speech-to-speech — for a conversational English-fluency platform serving learners across India, Indonesia, and Latin America.
+        - First author of the INTERSPEECH 2026 paper introducing entity- and disfluency-aware evaluation for accented conversational ASR, raising entity recall from 53–55% to 80–85% and filler recall from under 5% to 76–86%.
+        - Fine-tuned and deployed region-specific LoRA adapters on audio language models for non-native English speech, served through vLLM at sub-second P95 latency.
+        - Built and scaled a low-latency streaming text-to-speech service on Ray Serve and Anyscale, including multi-model GPU partitioning and autoscaling.
+        - Designed the evaluation systems behind the stack — LLM-as-judge pipelines validated against human labels, error taxonomies, and metric hierarchies for conversational quality.
+
+    - title: Research Fellow
+      institution: M365 Research, Microsoft
+      year: 2023 — 2025
       description:
-        - Description 1.
-        - Description 2.
+        - Published research on intelligent monitoring and cloud operations, including first-author work at FSE Industry 2026 and co-authored papers at FSE 2024 and ICSE-SEIP 2024.
+        - Developed foundation-model approaches to monitor configuration and incident prediction over large-scale operational telemetry.
+        - Built statistical frameworks used to identify faulty, redundant, and misconfigured monitors across production cloud services.
 
-    - title: Director
-      institution: Kaiser Wilhelm Institute for Physics, Berlin, Germany.
-      year: 1917-1933
-
-    - title: Professor of Theoretical Physics
-      institution: Karl-Ferdinand University, Prague, Czechoslovakia
-      year: 1911 - 1917
+    - title: Analyst
+      institution: Goldman Sachs
+      year: 2022 — 2023
       description:
+        - Optimised a real-time graph pricer with market data subscription capabilities, improving data-driven pricing behaviour.
+        - Worked on the Halo pricing model for rapid response to underlyer price changes in securitized derivatives.
 
-    - title: Associate Professor of Theoretical Physics
-      institution: University of Zurich, Zurich, Switzerland
-      year: 1909 - 1911
+    - title: Undergraduate Researcher
+      institution: Machine Learning Lab, IIIT Hyderabad
+      year: 2020 — 2022
+      description:
+        - Research student with Prof. Praveen Paruchuri and Prof. Sujit Gujar on privacy and generalization in deep reinforcement learning.
+        - Developed a Privacy-Aware Inverse Reinforcement Learning analysis framework, published at AAAI 2022.
 
-- title: Open Source Projects
+- title: Education
   type: time_table
   contents:
-    - title: <a href="https://github.com/alshedivat/al-folio">al-folio</a>
-      year: 2015-now
-      description: A beautiful, simple, clean, and responsive Jekyll theme for academics.
+    - title: B.Tech (Honours), Computer Science and Engineering
+      institution: International Institute of Information Technology, Hyderabad
+      year: 2018 — 2022
+      description:
+        - GPA 8.8 / 10.0
 
-- title: Honors and Awards
-  type: time_table
-  contents:
-    - year: 1921
-      items:
-        - Nobel Prize in Physics
-        - Matteucci Medal
-    - year: 2029
-      items:
-        - Max Planck Medal
-
-- title: Academic Interests
-  type: nested_list
-  contents:
-    - title: Topic 1.
-      items:
-        - Description 1.
-        - Description 2.
-    - title: Topic 2.
-      items:
-        - Description 1.
-        - Description 2.
-
-- title: Other Interests
+# NOTE: quote every entry. An unquoted value containing ": " is parsed by YAML
+# as a mapping, which renders as {"key"=>"value"} instead of the sentence.
+- title: Selected Publications
   type: list
   contents:
-    - <u>Hobbies:</u> Hobby 1, Hobby 2, etc.
+    - '<em>Beyond WER: Entity and Disfluency Recall in Accented Conversational ASR.</em> <span class="cv-venue">INTERSPEECH 2026</span> · first author'
+    - '<em>Attention Enhanced Entity Recommendation for Intelligent Monitoring in Cloud Systems.</em> <span class="cv-venue">FSE Industry 2026</span> · first author'
+    - '<em>X-lifecycle Learning for Cloud Incident Management using LLMs.</em> <span class="cv-venue">FSE 2024</span>'
+    - '<em>Intelligent Monitoring Framework for Cloud Services.</em> <span class="cv-venue">ICSE-SEIP 2024</span>'
+    - '<em>How Private Is Your RL Policy? An Inverse RL Based Analysis Framework.</em> <span class="cv-venue">AAAI 2022</span>'
+    - 'Full list with links on the <a href="/publications/">publications</a> page.'
+
+- title: Patents
+  type: list
+  contents:
+    - '<em>Monitor class recommendation framework.</em> <span class="cv-venue">United States patent application 18/593,338, 2025</span><br>Anjaly Parayil, Ayush Choure, Chetan Bansal, Saravan Rajmohan, Pooja Srinivas, Fiza Husain'
+
+- title: Technical Skills
+  type: nested_list
+  contents:
+    - title: Machine learning
+      items:
+        - LLM and audio-model fine-tuning (LoRA, DPO)
+        - Speech AI — ASR, TTS, speech-to-speech
+        - Evaluation systems and LLM-as-judge
+        - Reinforcement learning
+    - title: Serving and infrastructure
+      items:
+        - Ray Serve, Anyscale, vLLM, SGLang, Modal
+        - Streaming and distributed inference
+        - Docker, Kubernetes, AWS, GCP, BigQuery
+    - title: Frameworks
+      items:
+        - PyTorch, Transformers, PEFT, Hugging Face
+        - Weights & Biases
+    - title: Languages
+      items:
+        - Python, C++, SQL

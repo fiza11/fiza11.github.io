@@ -1,40 +1,57 @@
 ---
 ---
-@article{goel2024xlifecycle,
-      title={X-lifecycle Learning for Cloud Incident Management using LLMs}, 
-      author={Drishti Goel and Fiza Husain and Aditya Singh and Supriyo Ghosh and Anjaly Parayil and Chetan Bansal and Xuchao Zhang and Saravan Rajmohan},
-      journal={The ACM International Conference on the Foundations of Software Engineering},
-      year={2024},
-      eprint={2404.03662},
-      archivePrefix={arXiv},
-      primaryClass={cs.NI},
+@inproceedings{husain2026beyondwer,
+      abbr={INTERSPEECH},
+      title={Beyond WER: Entity and Disfluency Recall in Accented Conversational ASR},
+      author={Fiza Husain and Ankit Pandey and Yash Singh},
+      booktitle={Proceedings of INTERSPEECH 2026},
+      year={2026},
+      address={Sydney, Australia},
       selected={true},
+      pdf={husain2026-beyond-wer-interspeech.pdf},
+      abstract={ASR systems optimised for Word Error Rate (WER) often miss named entities and filled pauses in accented conversational English, both critical for language-learning feedback. We present a three-stage pipeline for speakers from India, Indonesia, and Latin America: (1) heuristic SQL filters curating entity-rich training data at ~2.8x the entity density of random sampling, (2) regional LoRA adapters fine-tuned on Qwen2.5-Omni-3B producing both verbatim and corrected transcripts in a single forward pass, and (3) a six-category error taxonomy validated by an LLM-based judge (83.8% agreement, 210 human-labelled samples). The pipeline achieves 80-85% entity recall (up from 53-55%), 76-86% filler recall (up from <5%), and 6-10% WER across 6k test utterances, outperforming Whisper and a commercial ASR on entity recall while matching a zero-shot 30B model with 10x fewer parameters. Paired bootstrap tests confirm that curation alone accounts for 2.8-4.2 pp of entity recall gain (p<0.0001).}
+}
+
+@inproceedings{husain2026direcgnn,
+      abbr={FSE},
+      title={Attention Enhanced Entity Recommendation for Intelligent Monitoring in Cloud Systems},
+      author={Fiza Husain and Anson Bastos and Anjaly Parayil and Ayush Choure and Chetan Bansal and Rujia Wang and Saravan Rajmohan},
+      booktitle={Proceedings of the 34th ACM International Conference on the Foundations of Software Engineering (Industry Track)},
+      year={2026},
+      selected={true},
+      arxiv={2510.20640},
+      abstract={In this paper, we present DiRecGNN, an attention-enhanced entity recommendation framework for monitoring cloud services at Microsoft. We provide insights on the usefulness of this feature as perceived by the cloud service owners and lessons learned from deployment. Specifically, we introduce the problem of recommending the optimal subset of attributes (dimensions) that should be tracked by an automated watchdog (monitor) for cloud services. To begin, we construct the monitor heterogeneous graph at production-scale. The interaction dynamics of these entities are often characterized by limited structural and engagement information, resulting in inferior performance of state-of-the-art approaches. Moreover, traditional methods fail to capture the dependencies between entities spanning a long range due to their homophilic nature. Therefore, we propose an attention-enhanced entity ranking model inspired by transformer architectures. Our model utilizes a multi-head attention mechanism to focus on heterogeneous neighbors and their attributes, and further attends to paths sampled using random walks to capture long-range dependencies. We also employ multi-faceted loss functions to optimize for relevant recommendations while respecting the inherent sparsity of the data. Empirical evaluations demonstrate significant improvements over existing methods, with our model achieving a 43.1% increase in MRR. Furthermore, product teams who consumed these features perceive the feature as useful and rated it 4.5 out of 5.}
+}
+
+@inproceedings{goel2024xlifecycle,
+      abbr={FSE},
+      title={X-lifecycle Learning for Cloud Incident Management using LLMs},
+      author={Drishti Goel and Fiza Husain and Aditya Singh and Supriyo Ghosh and Anjaly Parayil and Chetan Bansal and Xuchao Zhang and Saravan Rajmohan},
+      booktitle={Companion Proceedings of the 32nd ACM International Conference on the Foundations of Software Engineering},
+      year={2024},
       arxiv={2404.03662},
       abstract={Incident management for large cloud services is a complex and tedious process and requires significant amount of manual efforts from on-call engineers (OCEs). OCEs typically leverage data from different stages of the software development lifecycle [SDLC] (e.g., codes, configuration, monitor data, service properties, service dependencies, trouble-shooting documents, etc.) to generate insights for detection, root causing and mitigating of incidents. Recent advancements in large language models [LLMs] (e.g., ChatGPT, GPT-4, Gemini) created opportunities to automatically generate contextual recommendations to the OCEs assisting them to quickly identify and mitigate critical issues. However, existing research typically takes a silo-ed view for solving a certain task in incident management by leveraging data from a single stage of SDLC. In this paper, we demonstrate that augmenting additional contextual data from different stages of SDLC improves the performance of two critically important and practically challenging tasks: (1) automatically generating root cause recommendations for dependency failure related incidents, and (2) identifying ontology of service monitors used for automatically detecting incidents. By leveraging 353 incident and 260 monitor dataset from Microsoft, we demonstrate that augmenting contextual information from different stages of the SDLC improves the performance over State-of-The-Art methods.}
 }
 
-@article{srinivas2024intelligent,
-      title={Intelligent Monitoring Framework for Cloud Services: A Data-Driven Approach}, 
+@inproceedings{srinivas2024intelligent,
+      abbr={ICSE-SEIP},
+      title={Intelligent Monitoring Framework for Cloud Services: A Data-Driven Approach},
       author={Pooja Srinivas and Fiza Husain and Anjaly Parayil and Ayush Choure and Chetan Bansal and Saravan Rajmohan},
-      journal={46th International Conference on Software Engineering},
+      booktitle={Proceedings of the 46th International Conference on Software Engineering (Software Engineering in Practice)},
       year={2024},
-      eprint={2403.07927},
-      archivePrefix={arXiv},
-      primaryClass={cs.NI},
       arxiv={2403.07927},
-      abstract={Cloud service owners need to continuously monitor their services to ensure high availability and reliability. Gaps in monitoring can lead to delay in incident detection and significant negative customer impact. Current process of monitor creation is ad-hoc and reactive in nature. Developers create monitors using their tribal knowledge and, primarily, a trial and error based process. As a result, monitors often have incomplete coverage which leads to production issues, or redundancy which results in noise and wasted effort.
-
-In this work, we address this issue by proposing an intelligent monitoring framework that recommends monitors for cloud services based on their service properties. We start by mining the attributes of 30,000+ monitors from 791 production services at Microsoft and derive a structured ontology for monitors. We focus on two crucial dimensions: what to monitor (resources) and which metrics to monitor. We conduct an extensive empirical study and derive key insights on the major classes of monitors employed by cloud services at Microsoft, their associated dimensions, and the interrelationship between service properties and this ontology. Using these insights, we propose a deep learning based framework that recommends monitors based on the service properties. Finally, we conduct a user study with engineers from Microsoft which demonstrates the usefulness of the proposed framework. The proposed framework along with the ontology driven projections, succeeded in creating production quality recommendations for majority of resource classes. This was also validated by the users from the study who rated the framework’s usefulness as 4.27 out of 5.}
+      abstract={Cloud service owners need to continuously monitor their services to ensure high availability and reliability. Gaps in monitoring can lead to delay in incident detection and significant negative customer impact. Current process of monitor creation is ad-hoc and reactive in nature. Developers create monitors using their tribal knowledge and, primarily, a trial and error based process. As a result, monitors often have incomplete coverage which leads to production issues, or redundancy which results in noise and wasted effort. In this work, we address this issue by proposing an intelligent monitoring framework that recommends monitors for cloud services based on their service properties. We start by mining the attributes of 30,000+ monitors from 791 production services at Microsoft and derive a structured ontology for monitors. We focus on two crucial dimensions: what to monitor (resources) and which metrics to monitor. We conduct an extensive empirical study and derive key insights on the major classes of monitors employed by cloud services at Microsoft, their associated dimensions, and the interrelationship between service properties and this ontology. Using these insights, we propose a deep learning based framework that recommends monitors based on the service properties. Finally, we conduct a user study with engineers from Microsoft which demonstrates the usefulness of the proposed framework.}
 }
 
-@article{prakash2021private,
-      title={How Private Is Your RL Policy? An Inverse RL Based Analysis Framework}, 
+@inproceedings{prakash2022private,
+      abbr={AAAI},
+      title={How Private Is Your RL Policy? An Inverse RL Based Analysis Framework},
       author={Kritika Prakash and Fiza Husain and Praveen Paruchuri and Sujit P. Gujar},
-      journal={Proceedings of the 36th AAAI Conference on Artificial Intelligence},
-      year={2021},
-      eprint={2112.05495},
-      archivePrefix={arXiv},
-      primaryClass={cs.LG},
+      booktitle={Proceedings of the 36th AAAI Conference on Artificial Intelligence},
+      volume={36},
+      number={7},
+      pages={8009--8016},
+      year={2022},
       arxiv={2112.05495},
-      abstract={Reinforcement Learning (RL) enables agents to learn how to perform various tasks from scratch. In domains like autonomous driving, recommendation systems, and more, optimal RL policies learned could cause a privacy breach if the policies memorize any part of the private reward. We study the set of existing differentially-private RL policies derived from various RL algorithms such as Value Iteration, Deep-Q Networks, and Vanilla Proximal Policy Optimization. We propose a new Privacy-Aware Inverse RL analysis framework (PRIL) that involves performing reward reconstruction as an adversarial attack on private policies that the agents may deploy. For this, we introduce the reward reconstruction attack, wherein we seek to reconstruct the original reward from a privacy-preserving policy using the Inverse RL algorithm. An adversary must do poorly at reconstructing the original reward function if the agent uses a tightly private policy. Using this framework, we empirically test the effectiveness of the privacy guarantee offered by the private algorithms on instances of the FrozenLake domain of varying complexities. Based on the analysis performed, we infer a gap between the current standard of privacy offered and the standard of privacy needed to protect reward functions in RL. We do so by quantifying the extent to which each private policy protects the reward function by measuring distances between the original and reconstructed rewards.}
+      abstract={Reinforcement Learning (RL) enables agents to learn how to perform various tasks from scratch. In domains like autonomous driving, recommendation systems, and more, optimal RL policies learned could cause a privacy breach if the policies memorize any part of the private reward. We study the set of existing differentially-private RL policies derived from various RL algorithms such as Value Iteration, Deep-Q Networks, and Vanilla Proximal Policy Optimization. We propose a new Privacy-Aware Inverse RL analysis framework (PRIL) that involves performing reward reconstruction as an adversarial attack on private policies that the agents may deploy. For this, we introduce the reward reconstruction attack, wherein we seek to reconstruct the original reward from a privacy-preserving policy using the Inverse RL algorithm. An adversary must do poorly at reconstructing the original reward function if the agent uses a tightly private policy. Using this framework, we empirically test the effectiveness of the privacy guarantee offered by the private algorithms on instances of the FrozenLake domain of varying complexities. Based on the analysis performed, we infer a gap between the current standard of privacy offered and the standard of privacy needed to protect reward functions in RL.}
 }
