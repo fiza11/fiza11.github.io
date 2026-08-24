@@ -2,23 +2,62 @@
 layout: about
 title: about
 permalink: /
-subtitle: Researcher and artist
+subtitle: Founding Machine Learning Engineer
 
 profile:
   align: right
   image: profile_pic.jpeg
-  image_circular: false # crops the image to make it circular
+  image_circular: false
   more_info:
 
-news: false # includes a list of news items
-selected_papers: false # includes a list of papers marked as "selected={true}"
-social: false # includes social icons at the bottom of the page
+news: false
+selected_papers: true
+social: true
 ---
-Hello, I am Fiza, trying to distill recent learnings into bite-sized insights. <br><br>
-I am a Research Fellow at Microsoft's [M365 Research Group](https://www.microsoft.com/en-us/research/group/m365-research/) where I am working on the [Intelligent Monitoring](https://www.microsoft.com/en-us/research/blog/intelligent-monitoring-towards-ai-assisted-monitoring-for-cloud-services/) problem. My work involves automating and optimizing monitor configurations to enhance system reliability, reducing missed detections and unnecessary alerts that typically rely on manual expertise. Currently, I’m delving into recommendation systems, exploring heterogeneous graph-based methods to incorporate multi-type user behavior and improve item predictions.
 
-I graduated with a BTech in Computer Science and Engineering from [International Institute of Information Technology, Hyderabad](https://www.iiit.ac.in/) in 2022. During my time here, I worked as a research student with Prof. [Praveen Paruchuri](https://sites.google.com/view/praveen-paruchuri/) and Prof. [Sujit Gujar](https://www.sujitgujar.com/) on Privacy and Generalization in Deep Reinforcement Learning. Our work resulted in a novel [Privacy-Aware Inverse Reinforcement Learning](https://arxiv.org/abs/2112.05495) framework, published at AAAI’22.
+I build machine learning systems end to end — data, models, serving, and the
+evaluation that proves they work. Most of what I do sits between research and
+production: reading the literature and running the experiments, then owning the
+result once it's live and real users are hitting it. I've found the two halves
+are hard to separate, and that the interesting problems tend to appear where they
+meet.
 
-My research interests lie at the intersection of Applied Machine Learning and Privacy-Preserving AI, where I explore ways to build models that respect data privacy while maintaining high performance. I am particularly drawn to Explainable AI and Graph Neural Networks, aiming to make complex neural architectures more interpretable and applicable to real-world scenarios. Through my work, I seek to bridge the gap between theoretical ML advances and practical applications while ensuring transparency and privacy in AI systems.
+Right now that means **multimodal models**. I'm the founding machine learning
+engineer at [Stimuler](https://www.stimuler.tech/), where I own the speech stack
+behind a conversational English-fluency platform — fine-tuning audio language
+models for recognition and speech-to-speech, and serving them fast enough to hold
+a real conversation. The users are non-native English speakers across India,
+Indonesia, and Latin America, which makes almost every published benchmark a poor
+guide; accented, conversational, noisy speech is exactly the regime where
+general-purpose models quietly fall apart.
 
-Aside from tech, I find joy in the arts. Drawing and painting in various mediums allows me to express my creative side, and you can find my latest creations on [Twitter](https://twitter.com/fiza_husain). I also absolutely love cats and mathematics! 
+Before this I was a Research Fellow at
+[Microsoft M365 Research](https://www.microsoft.com/en-us/research/group/m365-research/),
+working on **AIOps** — applying foundation models to incident management and to
+the [Intelligent Monitoring](https://www.microsoft.com/en-us/research/blog/intelligent-monitoring-towards-ai-assisted-monitoring-for-cloud-services/)
+problem for large cloud services, using operational telemetry at a scale that
+made most conventional approaches fall over. That work appeared at FSE and ICSE.
+Earlier still, at [IIIT Hyderabad](https://www.iiit.ac.in/), I worked with
+Prof. [Praveen Paruchuri](https://sites.google.com/view/praveen-paruchuri/) and
+Prof. [Sujit Gujar](https://www.sujitgujar.com/) on privacy in **deep
+reinforcement learning**, published at AAAI. Five peer-reviewed papers, two as
+first author, and a patent.
+
+The thread through all of it is measurement. It is usually harder than the
+modelling, and it is where I have been most wrong. A model that scores well on
+the metric everyone reports can be useless for the thing you're actually
+building, and finding that out early is most of the job.
+
+Outside of tech I draw and paint, and I remain devoted to cats and to
+mathematics.
+
+<h2 class="fh-section"><a href="{{ '/work/' | relative_url }}">selected work</a></h2>
+
+<div class="projects">
+  {% assign sorted_projects = site.projects | sort: "importance" %}
+  <div class="row row-cols-1 row-cols-md-2">
+  {% for project in sorted_projects %}
+    {% include projects.liquid %}
+  {% endfor %}
+  </div>
+</div>
