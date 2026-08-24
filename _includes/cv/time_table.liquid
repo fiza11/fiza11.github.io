@@ -46,7 +46,9 @@
                   <span class="item-title">{{ item.title }}</span>
                   <ul class="subitems">
                     {% for subitem in item.contents %}
-                      <li><span class="subitem">{{ subitem }}</span></li>
+                      <li>
+                        <span class="subitem">{{ subitem }}</span>
+                      </li>
                     {% endfor %}
                   </ul>
                 {% else %}
@@ -65,7 +67,9 @@
                   <span class="item-title">{{ item.title }}</span>
                   <ul class="subitems">
                     {% for subitem in item.contents %}
-                      <li><span class="subitem">{{ subitem }}</span></li>
+                      <li>
+                        <span class="subitem">{{ subitem }}</span>
+                      </li>
                     {% endfor %}
                   </ul>
                 {% else %}

@@ -5,8 +5,8 @@ description: Two systems with the same WER can differ completely in usefulness
 date: 2026-08-24
 ---
 
-A learner says *"I went to Yogyakarta with Rina."* The transcriber returns
-*"I went to Jakarta with Rena."*
+A learner says _"I went to Yogyakarta with Rina."_ The transcriber returns
+_"I went to Jakarta with Rena."_
 
 Two words wrong out of seven, so the word error rate is about 0.29 — unremarkable
 for accented conversational speech, the kind of number you would see and move on
@@ -14,8 +14,8 @@ from. But the sentence has lost the only two things it was about. Every noun tha
 carried information is gone, and what remains is a grammatically clean sentence
 that means something else.
 
-Now consider the opposite failure. The same system transcribes *"I, um, I went
-to— I went to Yogyakarta"* as *"I went to Yogyakarta."* WER improves. If you are
+Now consider the opposite failure. The same system transcribes _"I, um, I went
+to— I went to Yogyakarta"_ as _"I went to Yogyakarta."_ WER improves. If you are
 building fluency feedback, you have just deleted your entire signal.
 
 Both of these are invisible to the metric everyone reports.
@@ -34,12 +34,12 @@ They do not, and the mismatch is systematic rather than random. Named entities
 are rare, high-information, and disproportionately likely to be misrecognised —
 they are out-of-vocabulary or near enough, they are frequently non-English in
 regions where speakers code-switch by default, and a language model prior will
-happily replace an unfamiliar name with a familiar one. *Yogyakarta* becomes
-*Jakarta* precisely because the model knows *Jakarta* better. The substitution is
+happily replace an unfamiliar name with a familiar one. _Yogyakarta_ becomes
+_Jakarta_ precisely because the model knows _Jakarta_ better. The substitution is
 confident, fluent, and wrong, and it costs the same as dropping an article.
 
 Disfluencies fail in the other direction. Most production ASR removes them
-deliberately, and for most applications that is correct — nobody wants *um* in a
+deliberately, and for most applications that is correct — nobody wants _um_ in a
 meeting transcript. But a system that scores speaking fluency is measuring
 hesitation, and hesitation is exactly what the cleanup step throws away. The
 system is optimised to destroy its own input.
@@ -89,14 +89,14 @@ has a kernel — the set of differences it maps to zero. WER's kernel contains
 "which words were wrong," and for a language tutor that is most of the signal.
 
 So the question worth asking of any metric you have inherited is not whether it
-is well-defined or widely used. It is: *what can change a lot without moving this
-number?* Then go and look at whether those things matter to you. In our case the
+is well-defined or widely used. It is: _what can change a lot without moving this
+number?_ Then go and look at whether those things matter to you. In our case the
 answer was sitting in the first ten transcripts I read by hand, and no amount of
 staring at the aggregate would have surfaced it.
 
 ---
 
-This is drawn from our INTERSPEECH 2026 paper, *Beyond WER: Entity and
-Disfluency Recall in Accented Conversational ASR*, with Ankit Pandey and Yash
+This is drawn from our INTERSPEECH 2026 paper, _Beyond WER: Entity and
+Disfluency Recall in Accented Conversational ASR_, with Ankit Pandey and Yash
 Singh. The [paper]({{ '/assets/pdf/husain2026-beyond-wer-interspeech.pdf' | relative_url }})
 has the full tables across all three regions.
