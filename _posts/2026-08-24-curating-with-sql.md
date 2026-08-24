@@ -23,15 +23,15 @@ budget and still be mostly paying for sentences with no names in them.
 The move is to spend a cheap signal to avoid spending an expensive one. We
 already had a large corpus of existing production transcripts sitting in the
 warehouse — imperfect, machine-generated, but free. Imperfect text is more than
-good enough to *decide what to annotate*, even when it is not good enough to
+good enough to _decide what to annotate_, even when it is not good enough to
 train on.
 
 So the curation runs as SQL, before anything is sent for careful transcription.
 Keep an utterance of four or more words if it contains any of:
 
-- **Consecutive capitalised words** — *Taylor Swift*, *New Delhi*
-- **Acronyms**, two or more uppercase letters — *UNESCO*, *BTS*
-- **Honorifics and titles** — *Mr*, *Dr*, *Prof*, *President*
+- **Consecutive capitalised words** — _Taylor Swift_, _New Delhi_
+- **Acronyms**, two or more uppercase letters — _UNESCO_, _BTS_
+- **Honorifics and titles** — _Mr_, _Dr_, _Prof_, _President_
 - **Mid-sentence capitalisation**, which catches most single-token names
 
 These are crude. They are also almost free to run, and they need to be crude,
@@ -82,10 +82,10 @@ points of difference on a few thousand utterances is exactly the regime where
 eyeballing fails.
 
 Curation alone accounts for **+4.19pp** entity recall on India, **+2.84pp** on
-Indonesia, and **+2.76pp** on Latin America, all at *p* < 0.0001 with confidence
+Indonesia, and **+2.76pp** on Latin America, all at _p_ < 0.0001 with confidence
 intervals excluding zero.
 
-Those are not huge numbers. They are, however, *real* numbers, and I would rather
+Those are not huge numbers. They are, however, _real_ numbers, and I would rather
 have a small effect I can defend than a large one I cannot attribute. The
 ablation cost one extra training run and it is the reason the claim survived peer
 review.
@@ -107,7 +107,7 @@ afterwards how much the proxy was worth on its own.
 
 ---
 
-This is drawn from our INTERSPEECH 2026 paper, *Beyond WER: Entity and
-Disfluency Recall in Accented Conversational ASR*, with Ankit Pandey and Yash
+This is drawn from our INTERSPEECH 2026 paper, _Beyond WER: Entity and
+Disfluency Recall in Accented Conversational ASR_, with Ankit Pandey and Yash
 Singh. See also [why WER is the wrong target]({{ '/blog/2026/beyond-wer/' | relative_url }}),
 on what we measured instead.

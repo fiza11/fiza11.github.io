@@ -37,7 +37,7 @@ interface before concluding anything about either the judge or the labellers.
 ## Judges earn the right to decide
 
 Until a judge has been through that audit, it explains rather than decides. It
-tells you *why* something is failing and which failure modes dominate; it does
+tells you _why_ something is failing and which failure modes dominate; it does
 not get to gate a release or settle an A/B test.
 
 This distinction is easy to lose. A judge that produces plausible numbers gets

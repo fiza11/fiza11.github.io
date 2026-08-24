@@ -51,7 +51,7 @@ building, and finding that out early is most of the job.
 Outside of tech I draw and paint, and I remain devoted to cats and to
 mathematics.
 
-<h2 class="fh-section"><a href="{{ '/work/' | relative_url }}">selected work</a></h2>
+<h2 class="fh-section"><a href="/work/">selected work</a></h2>
 
 <div class="projects">
   {% assign sorted_projects = site.projects | sort: "importance" %}

@@ -7,15 +7,15 @@ category: work
 ---
 
 Word error rate quietly rewards a transcriber for discarding exactly what a
-language tutor needs. If a learner says *"I went to Yogyakarta with Rina,"* a
-system that returns *"I went to Jakarta with Rena"* barely moves its WER — two
+language tutor needs. If a learner says _"I went to Yogyakarta with Rina,"_ a
+system that returns _"I went to Jakarta with Rena"_ barely moves its WER — two
 short words out of seven — while getting wrong the only two things the sentence
 was about. The same is true in the other direction: every production ASR system
-strips *um*, *uh*, and false starts by design, and those are precisely the signal
+strips _um_, _uh_, and false starts by design, and those are precisely the signal
 a fluency assessment is computed from.
 
 This was the problem behind my first-author paper at **INTERSPEECH 2026**,
-*Beyond WER: Entity and Disfluency Recall in Accented Conversational ASR*, with
+_Beyond WER: Entity and Disfluency Recall in Accented Conversational ASR_, with
 Ankit Pandey and Yash Singh. The argument is that WER is the wrong optimisation
 target for a language-learning product, that entity recall and filler recall
 should be measured directly, and that doing so changes which model you would pick.
@@ -50,17 +50,17 @@ models against 210 human labels before selecting one at 83.8% exact agreement.
 
 ## Results
 
-| Region | Model | WER | Entity recall | Filler recall |
-|---|---|---|---|---|
-| India | Prior production baseline | 13.01 | 53.59 | 0.37 |
-| | Whisper | 9.63 | 78.59 | 1.63 |
-| | **Ours** | **5.95** | **79.52** | **76.79** |
-| Indonesia | Prior production baseline | 18.18 | 55.23 | 4.15 |
-| | Whisper | 12.70 | 79.16 | 7.12 |
-| | **Ours** | **7.36** | **84.60** | **85.68** |
-| LatAm | Prior production baseline | 21.12 | 54.31 | 1.18 |
-| | Whisper | 16.44 | 76.92 | 2.66 |
-| | **Ours** | **10.00** | **81.87** | **76.47** |
+| Region    | Model                     | WER       | Entity recall | Filler recall |
+| --------- | ------------------------- | --------- | ------------- | ------------- |
+| India     | Prior production baseline | 13.01     | 53.59         | 0.37          |
+|           | Whisper                   | 9.63      | 78.59         | 1.63          |
+|           | **Ours**                  | **5.95**  | **79.52**     | **76.79**     |
+| Indonesia | Prior production baseline | 18.18     | 55.23         | 4.15          |
+|           | Whisper                   | 12.70     | 79.16         | 7.12          |
+|           | **Ours**                  | **7.36**  | **84.60**     | **85.68**     |
+| LatAm     | Prior production baseline | 21.12     | 54.31         | 1.18          |
+|           | Whisper                   | 16.44     | 76.92         | 2.66          |
+|           | **Ours**                  | **10.00** | **81.87**     | **76.47**     |
 
 Entity recall moved from 53–55% to 80–85%, filler recall from under 5% to
 76–86%, and WER fell by 53–60% relative to the prior baseline. The fine-tuned 3B
