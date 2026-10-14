@@ -1,0 +1,48 @@
+<figure class="fh-figure">
+  <p class="fh-chart-heading">Severe comprehension failures, indexed to launch = 100</p>
+  <svg class="fh-chart" viewBox="0 0 560 164" role="img" aria-label="Severe comprehension failures after each fix, indexed to launch">
+    <line class="fh-grid" x1="230.0" x2="230.0" y1="6" y2="142" />
+    <text class="fh-tick" x="230.0" y="158" text-anchor="middle">0</text>
+    <line class="fh-grid" x1="301.5" x2="301.5" y1="6" y2="142" />
+    <text class="fh-tick" x="301.5" y="158" text-anchor="middle">25</text>
+    <line class="fh-grid" x1="373.0" x2="373.0" y1="6" y2="142" />
+    <text class="fh-tick" x="373.0" y="158" text-anchor="middle">50</text>
+    <line class="fh-grid" x1="444.5" x2="444.5" y1="6" y2="142" />
+    <text class="fh-tick" x="444.5" y="158" text-anchor="middle">75</text>
+    <line class="fh-grid" x1="516.0" x2="516.0" y1="6" y2="142" />
+    <text class="fh-tick" x="516.0" y="158" text-anchor="middle">100</text>
+    <text class="fh-label" x="220" y="27.0" text-anchor="end">At launch</text>
+    <path class="fh-s-ours" d="M230,15.0H512.0Q516.0,15.0 516.0,19.0V27.0Q516.0,31.0 512.0,31.0H230Z">
+      <title>At launch: 100 (launch = 100)</title>
+    </path>
+    <text class="fh-val" x="522.0" y="27.0">100</text>
+    <text class="fh-label" x="220" y="61.0" text-anchor="end">Real learner turns in history</text>
+    <path
+      class="fh-s-ours"
+      d="M230,49.0H362.98381877022655Q366.98381877022655,49.0 366.98381877022655,53.0V61.0Q366.98381877022655,65.0 362.98381877022655,65.0H230Z"
+    >
+      <title>Real learner turns in history: 48 (launch = 100)</title>
+    </path>
+    <text class="fh-val" x="373.0" y="61.0">48</text>
+    <text class="fh-label" x="220" y="95.0" text-anchor="end">Placeholder text cleaned up</text>
+    <path
+      class="fh-s-ours"
+      d="M230,83.0H342.62135922330094Q346.62135922330094,83.0 346.62135922330094,87.0V95.0Q346.62135922330094,99.0 342.62135922330094,99.0H230Z"
+    >
+      <title>Placeholder text cleaned up: 41 (launch = 100)</title>
+    </path>
+    <text class="fh-val" x="352.6" y="95.0">41</text>
+    <text class="fh-label" x="220" y="129.0" text-anchor="end">History raised from 4 to 8 turns</text>
+    <path
+      class="fh-s-ours"
+      d="M230,117.0H322.25889967637545Q326.25889967637545,117.0 326.25889967637545,121.0V129.0Q326.25889967637545,133.0 322.25889967637545,133.0H230Z"
+    >
+      <title>History raised from 4 to 8 turns: 34 (launch = 100)</title>
+    </path>
+    <text class="fh-val" x="332.3" y="129.0">34</text>
+  </svg>
+  <figcaption>
+    Each fix was to the pipeline feeding the model; the model weights never changed. Values are the rate measured at each step in sequence, on live
+    traffic, as before-and-after comparisons rather than randomised tests.
+  </figcaption>
+</figure>

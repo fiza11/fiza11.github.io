@@ -1,0 +1,25 @@
+<figure class="fh-figure">
+  <ol class="fh-flow">
+    <li>
+      <span class="fh-flow-step">1 · curate</span>
+      <strong>SQL filters</strong>
+      <span>pick entity-rich utterances before labelling, at 2.8× the entity density of random sampling</span>
+    </li>
+    <li>
+      <span class="fh-flow-step">2 · adapt</span>
+      <strong>Regional LoRA adapters</strong>
+      <span>one each for India, Indonesia and LatAm, on a frozen Qwen2.5-Omni-3B</span>
+    </li>
+    <li>
+      <span class="fh-flow-step">3 · transcribe</span>
+      <strong>One forward pass</strong>
+      <span>returns a verbatim transcript, a corrected one, and a comprehensible flag</span>
+    </li>
+    <li>
+      <span class="fh-flow-step">4 · diagnose</span>
+      <strong>LLM judge</strong>
+      <span>sorts every error into one of six categories, validated against human labels</span>
+    </li>
+  </ol>
+  <figcaption>The pipeline. Each stage is described below.</figcaption>
+</figure>

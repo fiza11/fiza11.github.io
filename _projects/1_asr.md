@@ -14,13 +14,14 @@ was about. The same is true in the other direction: every production ASR system
 strips _um_, _uh_, and false starts by design, and those are precisely the signal
 a fluency assessment is computed from.
 
-This was the problem behind my first-author paper at **INTERSPEECH 2026**,
-_Beyond WER: Entity and Disfluency Recall in Accented Conversational ASR_, with
-Ankit Pandey and Yash Singh. The argument is that WER is the wrong optimisation
+This was the problem behind the paper at **INTERSPEECH 2026**,
+[_Beyond WER: Entity and Disfluency Recall in Accented Conversational ASR_](https://arxiv.org/abs/2609.20828). The argument is that WER is the wrong optimisation
 target for a language-learning product, that entity recall and filler recall
 should be measured directly, and that doing so changes which model you would pick.
 
 ## The pipeline
+
+{% include figures/asr-pipeline.html %}
 
 **Curating entity-rich data with SQL rather than annotators.** Only 24–28% of
 real learner utterances contain a proper noun, so random sampling produces
@@ -50,6 +51,8 @@ models against 210 human labels before selecting one at 83.8% exact agreement.
 
 ## Results
 
+{% include figures/asr-recall.html %}
+
 | Region    | Model                     | WER       | Entity recall | Filler recall |
 | --------- | ------------------------- | --------- | ------------- | ------------- |
 | India     | Prior production baseline | 13.01     | 53.59         | 0.37          |
@@ -73,6 +76,38 @@ identical adapter on randomly sampled data isolates what the curation stage was
 worth on its own: paired bootstrap tests over 10,000 iterations attribute
 +4.19pp, +2.84pp, and +2.76pp of entity recall to curation alone, all at
 p&lt;0.0001. A day of writing SQL was worth more than most of the modelling.
+
+## Around the paper
+
+The paper reports the final pipeline. The experiments that led to it, and some
+that followed, had findings of their own.
+
+- **Backbone.** Qwen2.5-Omni beat Gemma-3n in every region (India 8.99% vs
+  9.71% WER, Indonesia 11.88% vs 13.21%, LatAm 13.01% vs 24.00%). The same
+  runs showed that segmenting audio with a voice-activity detector before
+  recognition hurts (LatAm 13.01% → 14.19%). A later study on 919 Indonesian
+  samples found out why: the detector placed the start of speech within 100ms
+  81% of the time, but the end only 44% of the time. Endpointing is where the
+  losses are.
+- **Region-specific adapters beat one mixed model** by about one point of WER
+  in every region. **LoRA rank barely matters** (r=16: 7.97%, r=64: 7.99%), so
+  I stopped spending compute on it. Giving the model what the tutor had just
+  said as context produced the best India result, 7.49%.
+- **Size.** Across all regions, fine-tuned 3B and 7B models (WER 7.83% and
+  7.14%, entity F1 0.75 and 0.77) both beat a zero-shot 30B model (11.63%,
+  0.56). The 30B model also barely used the confidence tags the transcripts
+  carry, however it was prompted.
+- **Over-correction.** The corrected transcript is supposed to fix only what
+  the _recogniser_ got wrong, and leave the _learner's_ mistakes alone, because
+  those are what the tutor gives feedback on. Suppose a learner says _"Yesterday
+  I go to the beach with my sister."_ The right corrected transcript keeps
+  _"I go"_. An over-corrected one returns _"Yesterday I went to the beach with
+  my sister,"_ and the tutor has nothing left to correct. The model was doing
+  this kind of rewriting in about a third of outputs. Preference tuning (DPO)
+  on about 2,500 pairs, each contrasting a faithful correction with an
+  over-eager one, cut the over-correction rate from 18.6% to 9.9% and raised
+  good corrections from 62.9% to 72.3%, on 1,824 judged samples. That version
+  runs in production.
 
 ## What I would flag about it
 

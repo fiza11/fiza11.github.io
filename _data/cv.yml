@@ -15,8 +15,9 @@
       institution: Stimuler
       year: 2025 — present
       description:
-        - Own the production speech stack end to end — automatic speech recognition, text-to-speech, and speech-to-speech — for a conversational English-fluency platform serving learners across India, Indonesia, and Latin America.
+        - Own the production speech stack end to end — automatic speech recognition, text-to-speech, and speech-to-speech — for a conversational English-fluency platform serving learners around the world.
         - First author of the INTERSPEECH 2026 paper introducing entity- and disfluency-aware evaluation for accented conversational ASR, raising entity recall from 53–55% to 80–85% and filler recall from under 5% to 76–86%.
+        - Led the architecture research for a speech-to-speech tutor, comparing full-duplex, cascaded, and omni models and fine-tuning Qwen3-Omni, before shipping at under 600ms to first audio; pipeline fixes found through controlled analysis then cut severe comprehension failures by about two thirds.
         - Fine-tuned and deployed region-specific LoRA adapters on audio language models for non-native English speech, served through vLLM at sub-second P95 latency.
         - Built and scaled a low-latency streaming text-to-speech service on Ray Serve and Anyscale, including multi-model GPU partitioning and autoscaling.
         - Designed the evaluation systems behind the stack — LLM-as-judge pipelines validated against human labels, error taxonomies, and metric hierarchies for conversational quality.
@@ -35,6 +36,13 @@
       description:
         - Optimised a real-time graph pricer with market data subscription capabilities, improving data-driven pricing behaviour.
         - Worked on the Halo pricing model for rapid response to underlyer price changes in securitized derivatives.
+
+    - title: Privacy AI Engineer
+      institution: OpenMined (remote)
+      year: 2021 — 2022
+      description:
+        - Implemented adversarial differential privacy support for tensor functions on private tensors in PySyft, OpenMined's privacy-preserving data science library.
+        - Found and fixed vulnerabilities in its differential privacy library.
 
     - title: Undergraduate Researcher
       institution: Machine Learning Lab, IIIT Hyderabad

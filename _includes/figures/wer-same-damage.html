@@ -1,0 +1,34 @@
+<figure class="fh-figure">
+  <div class="fh-align">
+    <div class="fh-align-row">
+      <span class="fh-align-label">Said</span>
+      <span class="fh-align-words">
+        <span>um</span> <span>I</span> <span>went</span> <span>to</span> <span>Yogyakarta</span> <span>uh</span> <span>with</span> <span>Rina</span>
+      </span>
+      <span class="fh-align-score"></span>
+    </div>
+    <div class="fh-align-row">
+      <span class="fh-align-label">System A</span>
+      <span class="fh-align-words">
+        <span>um</span> <span>I</span> <span>went</span> <span>to</span>
+        <span class="fh-sub" title="substitution: Yogyakarta → Jakarta"><s>Yogyakarta</s> Jakarta</span>
+        <span>uh</span> <span>with</span>
+        <span class="fh-sub" title="substitution: Rina → Rena"><s>Rina</s> Rena</span>
+      </span>
+      <span class="fh-align-score">WER 25%<em>lost: both names</em></span>
+    </div>
+    <div class="fh-align-row">
+      <span class="fh-align-label">System B</span>
+      <span class="fh-align-words">
+        <span class="fh-del" title="deletion"><s>um</s></span> <span>I</span> <span>went</span> <span>to</span> <span>Yogyakarta</span>
+        <span class="fh-del" title="deletion"><s>uh</s></span> <span>with</span>
+        <span>Rina</span>
+      </span>
+      <span class="fh-align-score">WER 25%<em>lost: every hesitation</em></span>
+    </div>
+  </div>
+  <figcaption>
+    Two errors in eight words each, so WER can't tell these systems apart. A tutor can: System A lost what the sentence was about, and System B lost
+    the signal a fluency score is computed from. (Illustrative example.)
+  </figcaption>
+</figure>

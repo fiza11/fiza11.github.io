@@ -2,7 +2,7 @@
 layout: page
 title: work
 permalink: /work/
-description: Speech systems I've built, and how I approach the problems they raise.
+description: Research on speech models in production — what I tested, what held up, and what didn't.
 nav: true
 nav_order: 2
 horizontal: false
