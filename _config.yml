@@ -124,7 +124,7 @@ bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 # -----------------------------------------------------------------------------
 
 blog_name: writing
-blog_description: Notes on speech AI, evaluation, and building machine learning systems.
+blog_description: Notes on speech AI, evaluation, building machine learning systems, and whatever else I find interesting.
 permalink: /blog/:year/:title/
 
 # Pagination

@@ -2,7 +2,7 @@
 layout: page
 title: Serving speech models when the metrics lie
 description: Why GPU utilisation is the wrong signal for multi-model inference pipelines, and what to instrument instead.
-importance: 3
+importance: 4
 category: work
 ---
 
@@ -17,7 +17,11 @@ observability handles badly.
 GPU utilisation is a time-average of whether the device is busy. A language model
 generating tokens in short bursts leaves large gaps, so a pipeline that is
 already saturated can report near-zero utilisation. I have watched a service fail
-under load while every graph insisted there was headroom.
+under load while every graph insisted there was headroom. That was the first
+system I shipped at Stimuler: a streaming text-to-speech service (Orpheus in
+vLLM, then the SNAC codec, streaming 24kHz audio) that fell over at around 50
+concurrent requests. On its own, vLLM handled 250. The real bottleneck was the
+codec's queue.
 
 The bottleneck in these systems is almost never the device. It is a queue in
 front of one component, and queues are invisible to device-level metrics. So the
@@ -33,13 +37,18 @@ want its actual boundaries, not an extrapolation.
 
 So I ramp concurrency until failures start and record the number where the first
 one appears, the number where the rate becomes material, and the number where it
-collapses. Three real numbers beat one modelled one. They also give you a
-concrete autoscaling threshold instead of a guess.
+collapses. For that TTS service the run was clean through request 47, failed first at 52
+(1.9%), reached 7.3% at 55, and reached a 70% failure rate at collapse. Three
+real numbers beat one modelled one. They also give you a concrete autoscaling
+threshold instead of a guess.
+
+{% include figures/serving-cliff.html %}
 
 Two smaller things worth measuring while you are there. First-call latency is
 often dramatically worse than steady-state because of lazy initialisation and
 JIT compilation, so warm-up needs to be explicit rather than incidental — this
-shows up as a mysteriously slow first user and then never reproduces. And any
+shows up as a mysteriously slow first user and then never reproduces. Our
+codec's first call took 0.666s against 0.025s for every call after it. And any
 compilation or graph-capture step interacts badly with cold starts, which makes
 eager-versus-compiled a latency decision, not just a throughput one.
 

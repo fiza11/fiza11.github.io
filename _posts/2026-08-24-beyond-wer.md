@@ -20,6 +20,8 @@ building fluency feedback, you have just deleted your entire signal.
 
 Both of these are invisible to the metric everyone reports.
 
+{% include figures/wer-same-damage.html %}
+
 ## The problem is in the construction
 
 WER is an edit distance between hypothesis and reference, normalised by reference
@@ -50,15 +52,15 @@ Here is the part I found genuinely surprising when we measured it. If WER
 correlated well enough with usefulness, none of this would matter much in
 practice. It does not.
 
-On our India test set, Whisper posts 9.63% WER and recovers 78.59% of named
-entities. A zero-shot 30B multimodal model posts **7.13%** WER — clearly better —
-and recovers **76.60%** of entities, clearly worse. Pick your model on WER and
-you take the one that loses more of the words your product exists to hear.
+When we compared off-the-shelf systems on accented learner speech, the rankings
+flipped. A large multimodal model had clearly better WER than Whisper, and
+recovered _fewer_ of the named entities. Pick your model on WER and you take the
+one that loses more of the words your product exists to hear.
 
-Filler recall separates them further. A strong commercial API reaches 7.22% WER
-on the same set while recovering 25.37% of filled pauses. The 30B model, with
-worse WER, recovers 91.27%. If you are building fluency assessment those two
-systems are not close, and WER puts them within half a point of each other.
+Filler recall separated them further. A strong commercial API and the large
+model landed within a fraction of a point of each other on WER. One kept most of
+the filled pauses; the other discarded most of them. If you are building fluency
+assessment those two systems are not close, and WER says they are the same.
 
 ## Measure the thing directly
 
@@ -76,11 +78,11 @@ Report both alongside WER rather than instead of it. WER remains a decent
 aggregate health check; it tells you when something has broken badly. It just
 should not be the number you optimise.
 
-For us the gap between the two views was large. Our fine-tuned models reach
-80–85% entity recall against a prior production baseline at 53–55%, and 76–86%
-filler recall against under 5%. On WER alone the improvement looks respectable.
-On the metrics that matter it is the difference between a product that works and
-one that does not.
+For us the gap between the two views was large. On WER alone, our fine-tuned
+models looked like a respectable improvement over what we had before. On entity
+and filler recall, they were the difference between a product that works and one
+that does not. (The numbers are on the
+[project page]({{ '/work/1_asr/' | relative_url }}).)
 
 ## The general version
 
@@ -97,6 +99,6 @@ staring at the aggregate would have surfaced it.
 ---
 
 This is drawn from our INTERSPEECH 2026 paper, _Beyond WER: Entity and
-Disfluency Recall in Accented Conversational ASR_, with Ankit Pandey and Yash
-Singh. The [paper]({{ '/assets/pdf/husain2026-beyond-wer-interspeech.pdf' | relative_url }})
-has the full tables across all three regions.
+Disfluency Recall in Accented Conversational ASR_. The paper ([ISCA Archive](https://www.isca-archive.org/interspeech_2026/husain26_interspeech.pdf),
+[arXiv](https://arxiv.org/abs/2609.20828)) has the full tables across all three
+regions.

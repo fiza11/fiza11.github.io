@@ -24,7 +24,7 @@ nav_order: 4
 <div class="publications">
   <ol class="bibliography">
     <li>
-      <div class="pub-title">Monitor class recommendation framework</div>
+      <div class="pub-title"><a href="https://patents.google.com/patent/US20250200432A1/en">Monitor class recommendation framework</a></div>
       <div class="periodical">United States patent application 18/593,338, 2025</div>
       <div class="author">Anjaly Parayil, Ayush Choure, Chetan Bansal, Saravan Rajmohan, Pooja Srinivas, <em>Fiza Husain</em></div>
     </li>

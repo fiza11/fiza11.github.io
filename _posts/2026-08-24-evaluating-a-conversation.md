@@ -51,7 +51,9 @@ be perfectly correct and unpleasant to listen to, and it will lose the user just
 as reliably as being wrong. It is also the axis most likely to be quietly
 sacrificed, because it is the hardest to put a number on.
 
-## Two failure modes worth knowing about in advance
+{% include figures/conversation-axes.html %}
+
+## A failure mode worth knowing about in advance
 
 **Training loss and perceived quality can move in opposite directions.** In
 speech generation this is not a rare pathology; it is close to the default. The
@@ -60,22 +62,6 @@ want, so a model can improve steadily on the loss while getting worse at the
 task. If the loss curve is your only instrument, you will ship the regression and
 feel good about it. I now treat a training-side improvement as a hypothesis, not
 a result, until something perceptual confirms it.
-
-**Frozen components constrain the ones you adapt.** A common and sensible
-architecture for these systems is to fine-tune the part that reasons and leave
-the part that produces audio frozen — it is far cheaper, and the frozen half is
-usually the part you have no good data for. The catch is that the two halves meet
-at an interface, and adapting one of them moves it relative to that interface.
-Push far enough and the audio degrades even though nothing about the audio
-component changed.
-
-What makes this genuinely hard to diagnose is that neither component looks broken
-on its own. The adapted half evaluates well on text. The frozen half was never
-touched and is bit-identical to the version that worked. Only the composition
-fails. The practical consequence is that how strongly you apply an adaptation
-becomes a parameter you have to tune against end-to-end quality, rather than an
-implementation detail you set once — and that you cannot catch any of this
-without an evaluation that exercises the whole path.
 
 ## Rubrics are specifications
 

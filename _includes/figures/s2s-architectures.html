@@ -1,0 +1,43 @@
+<figure class="fh-figure">
+  <div class="fh-arch">
+    <div class="fh-arch-row">
+      <span class="fh-arch-name">Full duplex<em>Moshi-style, 7B</em></span>
+      <span class="fh-arch-chain"
+        ><i>audio in</i><span class="fh-arrow">→</span><b>one model, listening and speaking at once</b><span class="fh-arrow">→</span
+        ><b>Mimi codec, 1.1 kbps</b><span class="fh-arrow">→</span><i>audio out</i></span
+      >
+      <span class="fh-arch-verdict">robotic voice; no adapter can fix the codec</span>
+    </div>
+    <div class="fh-arch-row">
+      <span class="fh-arch-name">Cascade<em>three models</em></span>
+      <span class="fh-arch-chain"
+        ><i>audio in</i><span class="fh-arrow">→</span><b>Whisper Large v3</b><span class="fh-arrow">→</span><b>Llama 3.2 3B + duplex tokens</b
+        ><span class="fh-arrow">→</span><b>3B TTS</b><span class="fh-arrow">→</span><i>audio out</i></span
+      >
+      <span class="fh-arch-verdict">~2.5s as heard, and three models to maintain</span>
+    </div>
+    <div class="fh-arch-row">
+      <span class="fh-arch-name">Nemotron VoiceChat<em>12B, closed</em></span>
+      <span class="fh-arch-chain"
+        ><i>audio in</i><span class="fh-arrow">→</span><b>closed duplex model</b><span class="fh-arrow">→</span><i>audio out</i></span
+      >
+      <span class="fh-arch-verdict">best style, but hears noise and its own voice as the user; can't fine-tune</span>
+    </div>
+    <div class="fh-arch-row">
+      <span class="fh-arch-name">Covo-Audio, MiniCPM-o<em>omni models</em></span>
+      <span class="fh-arch-chain"
+        ><i>audio in</i><span class="fh-arrow">→</span><b>omni model</b><span class="fh-arrow">→</span><i>audio out</i></span
+      >
+      <span class="fh-arch-verdict">below the quality bar</span>
+    </div>
+    <div class="fh-arch-row fh-arch-win">
+      <span class="fh-arch-name">Qwen3-Omni<em>30B MoE, 3B active</em></span>
+      <span class="fh-arch-chain"
+        ><i>audio in</i><span class="fh-arrow">→</span><b>Thinker: what to say</b><span class="fh-arrow">→</span><b>Talker: how to say it</b
+        ><span class="fh-arrow">→</span><b>audio decoder</b><span class="fh-arrow">→</span><i>audio out</i></span
+      >
+      <span class="fh-arch-verdict">shipped, under 600ms to first audio</span>
+    </div>
+  </div>
+  <figcaption>The five approaches, and where each one fell short of what a tutor on a noisy phone line needs.</figcaption>
+</figure>
